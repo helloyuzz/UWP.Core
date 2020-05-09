@@ -1,0 +1,60 @@
+﻿@page
+@model WebApp.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>DbConfig</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DbConfig[0].ServerIP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DbConfig[0].ServerPort)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DbConfig[0].Schema)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DbConfig[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DbConfig[0].Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.DbConfig) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServerIP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServerPort)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Schema)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
