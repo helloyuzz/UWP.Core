@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
+using WebApp.Models;
 
-namespace WebApp
+namespace YiranDictionaryEditor
 {
     public class IndexModel : PageModel
     {
@@ -18,13 +19,11 @@ namespace WebApp
             _context = context;
         }
 
-        public IList<DbConfig> DbConfig {
-            get; set;
-        }
+        public IList<DbSchema> DbSchemas { get;set; }
 
         public async Task OnGetAsync()
         {
-            DbConfig = await _context.DbConfig.ToListAsync();
+            DbSchemas = await _context.DbSchemas.ToListAsync();
         }
     }
 }
