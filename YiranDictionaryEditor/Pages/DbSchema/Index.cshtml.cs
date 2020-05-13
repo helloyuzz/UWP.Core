@@ -25,5 +25,16 @@ namespace YiranDictionaryEditor
         {
             DbSchemas = await _context.DbSchemas.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostAsync() {
+            if(!ModelState.IsValid) {
+                return Page();
+            }
+
+            //_context.Customers.Add(Customer);
+            //await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
     }
 }

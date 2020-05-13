@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using WebApp.Data;
 using WebApp.Models;
+using YiranDictionaryEditor.DAL;
 
 namespace WebApp.Pages {
     public class IndexModel:PageModel {
@@ -35,5 +36,17 @@ namespace WebApp.Pages {
         public async Task OnGetSync() {
             DbSchemas = await _context.DbSchemas.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPostSyncAsync() {
+            if(!ModelState.IsValid) {
+                return Page();
+            }
+            await SchemaDAL.SyncSchema(_context);
+
+            //_db.Customers.Add(Customer);
+            //await _db.SaveChangesAsync();
+            return RedirectToPage("/Index");
+        }
+
     }
 }

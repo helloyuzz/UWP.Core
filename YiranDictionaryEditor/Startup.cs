@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace WebApp {
     public class Startup {
@@ -29,6 +30,7 @@ namespace WebApp {
             var connection = "Filename=./demo.db";
             services.AddDbContext<WebAppContext>(options => options.UseSqlite(connection));
 
+            services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddRazorPagesOptions(options => {
             //    options.RootDirectory = "/DbSchema";
             //    options.Conventions.AddPageRoute("/Index","");
