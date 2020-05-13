@@ -31,6 +31,7 @@ namespace WebApp {
             services.AddDbContext<WebAppContext>(options => options.UseSqlite(connection));
 
             services.Configure<RazorPagesOptions>(options => options.RootDirectory = "/Pages");
+
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0).AddRazorPagesOptions(options => {
             //    options.RootDirectory = "/DbSchema";
             //    options.Conventions.AddPageRoute("/Index","");

@@ -12,6 +12,22 @@
             <input id="Button1" type="submit" asp-page-handler="Sync" value="Synchronization" />
         </form>
 </p>
+<table title="Folder Browser" class="easyui-treegrid" style="width:100%;height:250px"
+       data-options="
+                url: 'treegrid_data1.json',
+                method: 'get',
+                rownumbers: true,
+                idField: 'id',
+                treeField: 'name'
+            ">
+    <thead>
+        <tr>
+            <th data-options="field:'name'" width="220">SchemaName</th>
+            <th data-options="field:'size'" width="100" align="right">IsDeleted</th>
+            <th data-options="field:'date'" width="150">UpdateTime</th>
+        </tr>
+    </thead>
+</table>
 <table class="table">
     <thead>
         <tr>
@@ -28,6 +44,7 @@
         }
         </tbody>
 </table>
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
