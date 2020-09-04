@@ -11,6 +11,9 @@ namespace WebApp.Models {
         public string SchemaName {
             get;set;
         }
+        public DateTime CreateTime {
+            get;set;
+        }
         public DateTime UpdateTime {
             get;set;
         }
