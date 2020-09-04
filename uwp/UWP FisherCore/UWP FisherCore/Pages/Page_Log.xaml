@@ -1,0 +1,103 @@
+﻿<Page
+    x:Class="UWP_FisherCore.Pages.Page_Log"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP_FisherCore.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <uwp:TabView x:Name="Tabs"
+                      TabWidthBehavior="Actual"
+                      CanCloseTabs="False"
+                      IsCloseButtonOverlay="False"
+                      CanDragItems="True"
+                      CanReorderItems="True"
+                      AllowDrop="True"
+                      SelectedTabWidth="200">
+            <uwp:TabView.Resources>
+                <x:Double x:Key="TabViewItemHeaderMinHeight">40</x:Double>
+                <x:Double x:Key="TabViewItemHeaderMinWidth">48</x:Double>
+                <x:Double x:Key="TabViewItemHeaderMaxWidth">200</x:Double>
+            </uwp:TabView.Resources>
+            <uwp:TabView.Header>
+                <StackPanel>                    
+                    <TextBlock Padding="13" FontSize="16" FontWeight="Bold" Text="日志审计"/>
+                </StackPanel>
+            </uwp:TabView.Header>
+            <uwp:TabView.TabStartHeader>
+                <Button Width="48"
+                        Height="{StaticResource TabViewItemHeaderMinHeight}"
+                        Margin="0,0,-1,0"
+                        BorderThickness="1"
+                        Background="Transparent" 
+                        Style="{StaticResource ButtonRevealStyle}" 
+                        Padding="2,2,0,0"
+                        >
+                    <Viewbox MaxWidth="16" MaxHeight="16">
+                        <SymbolIcon Symbol="LeaveChat"/>
+                    </Viewbox>
+                </Button>
+            </uwp:TabView.TabStartHeader>
+
+            <!-- Tabs -->
+            <uwp:TabViewItem Header="用户登录" Icon="Home">
+                <TextBlock Padding="16">The TabView control has multiple uses.</TextBlock>
+            </uwp:TabViewItem>
+            <uwp:TabViewItem Header="授权记录" Icon="Audio">
+                <TextBlock Padding="16">It has a lot of versitility out of the box for different scenarios.</TextBlock>
+            </uwp:TabViewItem>
+            <uwp:TabViewItem Header="IP访问" Icon="Video">
+                <TextBlock Padding="16">You can enable drag-and-drop and reorder the tabs too.</TextBlock>
+            </uwp:TabViewItem>
+            <uwp:TabViewItem Header="黑名单" Icon="Calendar" IsClosable="False">
+                <TextBlock Padding="16">This tab isn't closable because its IsClosable property is set to False, even when CanCloseTabs is True.</TextBlock>
+            </uwp:TabViewItem>
+
+            <!--<uwp:TabView.TabActionHeader>
+                <Button x:Name="AddTabButtonUpper"
+                        Width="48"
+                        Height="{StaticResource TabViewItemHeaderMinHeight}"
+                        Margin="-1,0,0,0"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Style="{StaticResource ButtonRevealStyle}"
+                        >
+                    <Viewbox MaxWidth="16"
+                             MaxHeight="16">
+                        <FontIcon FontFamily="Segoe MDL2 Assets"
+                                  Glyph="&#xE710;" />
+                    </Viewbox>
+                </Button>
+
+            </uwp:TabView.TabActionHeader>-->
+
+            <uwp:TabView.TabEndHeader>
+                <Button Width="48"
+                Height="{StaticResource TabViewItemHeaderMinHeight}"
+                Margin="-1,0,0,0"
+                BorderThickness="1" 
+                Background="Transparent" 
+                Style="{StaticResource ButtonRevealStyle}">
+                    <Viewbox MaxWidth="16" MaxHeight="16">
+                        <SymbolIcon Symbol="Setting"/>
+                    </Viewbox>
+                </Button>
+            </uwp:TabView.TabEndHeader>
+
+            <uwp:TabView.Footer>
+                <TextBlock Padding="16,8,16,8"
+                   HorizontalAlignment="Left"
+                   FontSize="13" FontWeight="Normal"
+                   Text="共XXX条审计日志。" />
+            </uwp:TabView.Footer>
+        </uwp:TabView>
+    </Grid>
+</Page>

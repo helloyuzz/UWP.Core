@@ -1,0 +1,119 @@
+﻿<Page
+    x:Class="UWP_FisherCore.Pages.DemoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP_FisherCore.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d" x:Name="Page_Demo" Loaded="Page_Demo_Loaded"    
+    Background="Transparent">
+    
+    <Grid Background="Aqua">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>-->
+        <Border x:Name="AppTitleBar"
+                Grid.Column="1"
+                IsHitTestVisible="True"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Height="32"
+                Canvas.ZIndex="1">
+            <TextBlock x:Name="AppTitle"
+                       Text="UWP FisherCore"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="Green"
+                       Style="{StaticResource CaptionTextBlockStyle}" 
+                       />
+        </Border>
+        <NavigationView x:Name="nvSample"
+                        IsSettingsVisible="False"
+                        IsBackButtonVisible="Collapsed"
+                        IsBackEnabled="False"
+                        SelectionChanged="nvSample_SelectionChanged"
+                        Tapped="nvSample_Tapped"                        
+                        AlwaysShowHeader="True"
+                        PaneTitle="授权管理系统"
+                        PaneDisplayMode="Left"
+                        ExpandedModeThresholdWidth="430"
+                        SelectionFollowsFocus="Enabled" 
+                        IsTabStop="False"
+                        Background="Transparent"
+                        IsPaneToggleButtonVisible="True"
+                        >
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="授权码管理" Tag="vItem_LicenceCode" x:Name="vItem_LicenceCode">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="List" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="登录帐号" x:Name="vItem_Account" Tag="vItem_Account">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Contact"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="代理商" Tag="vItem_Agent" x:Name="vItem_Agent">
+                    <muxc:NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="DisableUpdates" />
+                    </muxc:NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="医院列表" x:Name="vItem_Tile" Tag="vItem_Account">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="Account"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Content="日志审计" Tag="vItem_Log" x:Name="vItem_Log">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="LeaveChat" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+
+            <NavigationView.PaneCustomContent>
+                <HyperlinkButton x:Name="homepage_PaneHyperlink" Content="Homepage" Margin="12,0" Visibility="Visible" Click="homepage_PaneHyperlink_Click"/>
+            </NavigationView.PaneCustomContent>
+
+            <NavigationView.PaneFooter>
+                <NavigationViewItem Icon="Repair" Tapped="StackPanel_Tapped">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="系统设置"/>
+                    </StackPanel>
+                    <FlyoutBase.AttachedFlyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="关于..." Icon="Help" Name="vItem_About" Tag="vItem_About" Click="vItem_About_Click">
+                                <MenuFlyoutItem.KeyboardAccelerators>
+                                    <KeyboardAccelerator Key="F1"/>
+                                </MenuFlyoutItem.KeyboardAccelerators>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutSeparator/>
+                            <MenuFlyoutItem Text="注销..." Icon="Redo" Name="btn_Exit" Tag="logout" Click="btn_Exit_Click" Tapped="btn_Exit_Tapped">
+                                <MenuFlyoutItem.KeyboardAccelerators>
+                                    <KeyboardAccelerator Key="S" Modifiers="Control"/>
+                                </MenuFlyoutItem.KeyboardAccelerators>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem Text="设置" Icon="Setting" Tag="distance">
+                                <MenuFlyoutItem.KeyboardAccelerators>
+                                    <KeyboardAccelerator Key="X" Modifiers="Control"/>
+                                </MenuFlyoutItem.KeyboardAccelerators>
+                            </MenuFlyoutItem>
+                        </MenuFlyout>
+                    </FlyoutBase.AttachedFlyout>
+                </NavigationViewItem>
+            </NavigationView.PaneFooter>
+
+            <Frame x:Name="contentFrame" Background="Transparent"/>
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox x:Name="sug_tip" 
+                                PlaceholderText="代理商或授权码"            
+                                TextChanged="sug_tip_TextChanged"        
+                                QueryIcon="Find"        
+                                QuerySubmitted="sug_tip_QuerySubmitted"        
+                                SuggestionChosen="sug_tip_SuggestionChosen"
+                                />
+            </NavigationView.AutoSuggestBox>
+        </NavigationView>
+    </Grid>
+</Page>

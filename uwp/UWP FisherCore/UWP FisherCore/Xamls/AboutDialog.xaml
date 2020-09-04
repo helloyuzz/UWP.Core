@@ -1,0 +1,21 @@
+﻿<ContentDialog
+    x:Class="UWP_FisherCore.Xamls.AboutDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP_FisherCore.Xamls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="关于"
+    PrimaryButtonText="Save"
+    CloseButtonText="Cancel"
+    DefaultButton="Primary"
+    >
+    <!--SecondaryButtonText="Don't Save"-->
+
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <!--<CheckBox Content="Upload your content to the cloud."/>-->
+        <TextBlock Text="UWP确实很牛批！很多功能都比较炫，值得研究，技术发展的潮流。"/>
+    </StackPanel>
+
+</ContentDialog>
