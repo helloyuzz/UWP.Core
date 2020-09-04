@@ -21,7 +21,8 @@ namespace YiranDictionaryEditor.DAL {
         private static void DbSync(WebApp.Data.WebAppContext _context) {
             for(int n = 1;n <= 16;n++) {
                 _context.DbSchemas.Add(new WebApp.Models.DbSchema() { SchemaName = "SchemaName_" + n,UpdateTime = DateTime.Now });
-            }
+            }            
+
             _context.SaveChanges();
         }
     }
