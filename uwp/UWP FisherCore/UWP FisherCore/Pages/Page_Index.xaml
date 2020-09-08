@@ -9,7 +9,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Margin="0,-40,0,0">
+        <Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/world_map_in_pink_and_green_list.jpg"></ImageBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -25,7 +28,10 @@
                 </Image.Source>
             </Image>
         </ParallaxView>-->
-        <Image Grid.Row="0" Width="Auto" Source="/Assets/MainPage_Banner.jpg" Height="236" Margin="0,-40,0,0" Stretch="Fill"/>        
+        <StackPanel Grid.Row="0" Width="Auto" Height="80" Padding="13">
+            <TextBlock Text="aa" Margin="13"/>
+        </StackPanel>
+        <!--<Image Grid.Row="0" Width="Auto" Source="/Assets/6.jpg" Height="80" Margin="0,-40,0,0" Stretch="Fill"/>-->        
         <Grid Grid.Row="1">
             <Grid.Transform3D>
                 <PerspectiveTransform3D/>
@@ -46,38 +52,14 @@
                         Loaded="mainPanel_Loaded" 
                         Tapped="mainPanel_Tapped"
                         >
-                <StackPanel.Resources>
-                    <Storyboard x:Name="rect2Storyboard">
-                        <DoubleAnimation 
-                            Storyboard.TargetName="rectangle2"
-                            Storyboard.TargetProperty="(UIElement.Transform3D).(CompositeTransform3D.RotationY)"
-                            From="0" To="-30" Duration="0:0:5"
-                            />
-                        <DoubleAnimation
-                            Storyboard.TargetName="rectangle2"
-                            Storyboard.TargetProperty="(UIElement.Transform3D).(CompositeTransform3D.TranslateZ)"
-                            From="175" To="-75" Duration="0:0:10"
-                            />
-                    </Storyboard>
-                </StackPanel.Resources>
-                
-                <StackPanel.Transform3D>
-                    <PerspectiveTransform3D />
-                </StackPanel.Transform3D>
-
-                <Rectangle Width="300" Height="200" Fill="CornflowerBlue" />
-
-                <Rectangle x:Name="rectangle2" Width="300" Height="200" Fill="CadetBlue" Margin="10">
-                    <Rectangle.Transform3D>
-                        <CompositeTransform3D CenterX="150" />
-                    </Rectangle.Transform3D>
-                </Rectangle>
-
-                <Rectangle Width="300" Height="200" Fill="OrangeRed">
-                    <Rectangle.Transform3D>
-                        <CompositeTransform3D TranslateZ="-150" />
-                    </Rectangle.Transform3D>
-                </Rectangle>
+                <Button Width="183" Height="183"
+                        FocusVisualPrimaryThickness="2"
+                        FocusVisualSecondaryThickness="1"
+                        FocusVisualMargin="-3"
+                        Margin="3"
+                        FocusVisualPrimaryBrush="{StaticResource SystemControlFocusVisualPrimaryBrush}"
+                        FocusVisualSecondaryBrush="{StaticResource SystemControlFocusVisualSecondaryBrush}" 
+                        />
             </StackPanel>
             <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Button x:Name="Button3" 

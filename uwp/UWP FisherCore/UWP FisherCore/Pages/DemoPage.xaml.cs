@@ -80,6 +80,7 @@ namespace UWP_FisherCore.Pages {
             } else if(itemType.Equals(typeof(TextBlock))) {
                 TextBlock textBlock = e.OriginalSource as TextBlock;
                 switch(textBlock.Name) {
+                    case "":
                     case "Icon":
                         e.Handled = true;
                         break;
@@ -87,9 +88,10 @@ namespace UWP_FisherCore.Pages {
                         nvSample.IsPaneOpen = true;
                         break;
                 }
-            } else {
-            nvSample.IsPaneOpen = true;
-
+            } else if(itemType.Equals(typeof(ContentPresenter))) {
+                return;
+            } else { 
+                //nvSample.IsPaneOpen = true;
             }
         }
 

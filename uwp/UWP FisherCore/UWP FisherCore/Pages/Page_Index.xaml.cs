@@ -25,11 +25,11 @@ namespace UWP_FisherCore.Pages {
         }
 
         private void mainPanel_Loaded(object sender,RoutedEventArgs e) {
-            rect2Storyboard.Begin();
+            //rect2Storyboard.Begin();
         }
 
         private void mainPanel_Tapped(object sender,TappedRoutedEventArgs e) {
-            rect2Storyboard.Begin();
+            //rect2Storyboard.Begin();
         }
     }
 }
