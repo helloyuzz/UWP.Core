@@ -9,7 +9,7 @@
     mc:Ignorable="d" x:Name="Page_Demo" Loaded="Page_Demo_Loaded"    
     Background="Transparent">
     
-    <Grid Background="Aqua">
+    <Grid>
         <!--<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
@@ -21,13 +21,13 @@
                 Background="Transparent"
                 Height="32"
                 Canvas.ZIndex="1">
-            <TextBlock x:Name="AppTitle"
+            <!--<TextBlock x:Name="AppTitle"
                        Text="UWP FisherCore"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        Foreground="Green"
                        Style="{StaticResource CaptionTextBlockStyle}" 
-                       />
+                       />-->
         </Border>
         <NavigationView x:Name="nvSample"
                         IsSettingsVisible="False"

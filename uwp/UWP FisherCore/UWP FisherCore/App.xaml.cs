@@ -41,7 +41,14 @@ namespace UWP_FisherCore {
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e) {
-            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ForegroundColor = Colors.Teal;
+
             Frame rootFrame = UWPUtil.CreateRootFrame();
 
             if(e.PreviousExecutionState == ApplicationExecutionState.Terminated) {
