@@ -5,79 +5,153 @@
     xmlns:local="using:UWP_FisherCore.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:uwp="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Grid.Resources>
-            <DataTemplate x:Key="RowDetailsTemplate">
-                <StackPanel>
-                    <TextBlock Margin="20" Text="Here are the details for the selected mountain:" />
-                    <Grid Margin="20,10" Padding="5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Text="Coordinates: " FontWeight="SemiBold" FontSize="13" />
-                        <TextBlock Grid.Row="1" Text="Prominence (m): " FontWeight="SemiBold" FontSize="13" />
-                        <TextBlock Grid.Row="2" Text="First Ascent (year): " FontWeight="SemiBold" FontSize="13" />
-                        <TextBlock Grid.Row="3" Text="No. of ascents: " FontWeight="SemiBold" FontSize="13" />
-                        <TextBlock Grid.Column="1" FontSize="13" Text="{Binding Coordinates}" HorizontalAlignment="Right" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" FontSize="13" Text="{Binding Prominence}" HorizontalAlignment="Right" />
-                        <TextBlock Grid.Row="2" Grid.Column="1" FontSize="13" Text="{Binding First_ascent}" HorizontalAlignment="Right" />
-                        <TextBlock Grid.Row="3" Grid.Column="1" FontSize="13" Text="{Binding Ascents}" HorizontalAlignment="Right" />
-                    </Grid>
-                </StackPanel>
-            </DataTemplate>
-        </Grid.Resources>
+    <Grid Margin="0,-40,0,0">
+        <!--<Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/65de008841d3350c3b218b2eb51f2510.jpg"></ImageBrush>
+        </Grid.Background>-->      
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="12">
+        <StackPanel Orientation="Horizontal" Margin="12,13,0,13" Visibility="Collapsed">
             <SymbolIcon Symbol="Contact"/>
             <TextBlock Text="登录帐号" VerticalAlignment="Center" Margin="15,0" Style="{ThemeResource SubtitleTextBlockStyle}"></TextBlock>
+            <!--<CommandBar Background="Transparent" DefaultLabelPosition="Right">
+                <AppBarButton Icon="Edit" Label="Add">
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem Text="新增帐号" Icon="AddFriend">
+                                <MenuFlyoutItem.KeyboardAccelerators>
+                                    <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                                </MenuFlyoutItem.KeyboardAccelerators>
+                            </MenuFlyoutItem>
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+            </CommandBar>-->
         </StackPanel>
-        <uwp:DataGrid
-            Grid.Row="1"
-            x:Name="dataGrid"
-            Margin="12"
-            VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-            HorizontalScrollBarVisibility="Visible"
-            VerticalScrollBarVisibility="Visible"
-            AlternatingRowBackground="Transparent"
-            AlternatingRowForeground="Transparent"
-            AreRowDetailsFrozen="True"
-            AreRowGroupHeadersFrozen="True"
-            AutoGenerateColumns="False"
-            CanUserSortColumns="True"
-            CanUserReorderColumns="True"
-            CanUserResizeColumns="True"
-            ColumnHeaderHeight="32"
-            MaxColumnWidth="400"
-            FrozenColumnCount="0"
-            GridLinesVisibility="None"
-            HeadersVisibility="Column"
-            IsReadOnly="False"
-            RowDetailsTemplate="{StaticResource RowDetailsTemplate}"
-            RowDetailsVisibilityMode="Collapsed"
-            SelectionMode="Extended"
-            RowGroupHeaderPropertyNameAlternative="Range"
-            >
-            <uwp:DataGrid.Columns>
-                <uwp:DataGridTextColumn Header="序号" Binding="{Binding Rank}" Tag="Rank" />
-                <uwp:DataGridComboBoxColumn Header="Mountain" Binding="{Binding Mountain}" Tag="Mountain" />
-                <uwp:DataGridTextColumn Header="Height (m)" Binding="{Binding Height_m}" Tag="Height_m" />
-                <uwp:DataGridTextColumn Header="Range" Binding="{Binding Range}" Tag="Range" />
-                <uwp:DataGridTextColumn Header="Parent Mountain" Binding="{Binding Parent_mountain}" Tag="Parent_mountain" />
-            </uwp:DataGrid.Columns>
-        </uwp:DataGrid>
+        <uwp:TabView x:Name="Tabs" Grid.Row="1"
+                      TabWidthBehavior="Actual"
+                      CanCloseTabs="False"
+                      IsCloseButtonOverlay="False"
+                      CanDragItems="True"
+                      CanReorderItems="True"
+                      AllowDrop="True"
+                      SelectedTabWidth="200" Margin="0,33,0,13"
+                     >
+            <uwp:TabView.Resources>
+                <x:Double x:Key="TabViewItemHeaderMinHeight">40</x:Double>
+                <x:Double x:Key="TabViewItemHeaderMinWidth">48</x:Double>
+                <x:Double x:Key="TabViewItemHeaderMaxWidth">200</x:Double>
+            </uwp:TabView.Resources>
+            <!--<uwp:TabView.Header>
+                <StackPanel Margin="12,22,0,0">        
+                    <TextBlock Padding="13" FontSize="16" FontWeight="Bold" Text="日志审计"/>
+                </StackPanel>
+            </uwp:TabView.Header>-->
+            <uwp:TabView.TabStartHeader>
+                <Button Width="48"
+                        Height="{StaticResource TabViewItemHeaderMinHeight}"
+                        Margin="0,0,-1,0"
+                        BorderThickness="0"
+                        Background="Transparent" 
+                        Style="{StaticResource ButtonRevealStyle}" 
+                        Padding="2,2,0,0"
+                        >
+                    <Viewbox MaxWidth="16" MaxHeight="16">
+                        <SymbolIcon Symbol="AddFriend"/>
+                    </Viewbox>
+                </Button>
+            </uwp:TabView.TabStartHeader>
+
+            <!-- Tabs -->
+            <uwp:TabViewItem Header="帐号列表" Icon="Home" Background="Transparent">
+                <uwp:DataGrid
+                    Grid.Row="1"
+                    x:Name="dataGrid"
+                    Margin="3"
+                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                    HorizontalScrollBarVisibility="Visible"
+                    VerticalScrollBarVisibility="Visible"
+                    AlternatingRowBackground="Transparent"
+                    AlternatingRowForeground="Transparent"
+                    AreRowDetailsFrozen="True"
+                    AreRowGroupHeadersFrozen="True"
+                    AutoGenerateColumns="False"
+                    CanUserSortColumns="True"
+                    CanUserReorderColumns="True"
+                    CanUserResizeColumns="True"
+                    ColumnHeaderHeight="32"
+                    MaxColumnWidth="400"
+                    FrozenColumnCount="0"
+                    GridLinesVisibility="None"
+                    HeadersVisibility="Column"
+                    IsReadOnly="False"
+                    RowDetailsVisibilityMode="Collapsed"
+                    SelectionMode="Extended"
+                    RowGroupHeaderPropertyNameAlternative="Range"
+                    >
+                    <uwp:DataGrid.Columns>
+                        <uwp:DataGridTextColumn Header="序号" Binding="{Binding Rank}" Tag="Rank" />
+                        <uwp:DataGridComboBoxColumn Header="帐号" Binding="{Binding Mountain}" Tag="Mountain" />
+                        <uwp:DataGridTextColumn Header="姓名" Binding="{Binding Height_m}" Tag="Height_m" />
+                        <uwp:DataGridTextColumn Header="部门" Binding="{Binding Range}" Tag="Range" />
+                        <uwp:DataGridTextColumn Header="职务" Binding="{Binding Parent_mountain}" Tag="Parent_mountain" />
+                    </uwp:DataGrid.Columns>
+                </uwp:DataGrid>
+            </uwp:TabViewItem>
+            <!--<uwp:TabViewItem Header="授权记录" Icon="Audio">
+                <TextBlock Padding="16">It has a lot of versitility out of the box for different scenarios.</TextBlock>
+            </uwp:TabViewItem>
+            <uwp:TabViewItem Header="IP访问" Icon="Video">
+                <TextBlock Padding="16">You can enable drag-and-drop and reorder the tabs too.</TextBlock>
+            </uwp:TabViewItem>
+            <uwp:TabViewItem Header="黑名单" Icon="Calendar" IsClosable="False">
+                <TextBlock Padding="16">This tab isn't closable because its IsClosable property is set to False, even when CanCloseTabs is True.</TextBlock>
+            </uwp:TabViewItem>-->
+
+            <!--<uwp:TabView.TabActionHeader>
+                <Button x:Name="AddTabButtonUpper"
+                        Width="48"
+                        Height="{StaticResource TabViewItemHeaderMinHeight}"
+                        Margin="-1,0,0,0"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        Style="{StaticResource ButtonRevealStyle}"
+                        >
+                    <Viewbox MaxWidth="16"
+                             MaxHeight="16">
+                        <FontIcon FontFamily="Segoe MDL2 Assets"
+                                  Glyph="&#xE710;" />
+                    </Viewbox>
+                </Button>
+
+            </uwp:TabView.TabActionHeader>-->
+
+            <!--<uwp:TabView.TabEndHeader>
+                <Button Width="48"
+                Height="{StaticResource TabViewItemHeaderMinHeight}"
+                Margin="-1,0,0,0"
+                BorderThickness="1" 
+                Background="Transparent" 
+                Style="{StaticResource ButtonRevealStyle}">
+                    <Viewbox MaxWidth="16" MaxHeight="16">
+                        <SymbolIcon Symbol="AddFriend"/>
+                    </Viewbox>
+                </Button>
+            </uwp:TabView.TabEndHeader>-->
+
+            <uwp:TabView.Footer>
+                <TextBlock Padding="16,8,16,8"
+                   HorizontalAlignment="Left"
+                   FontSize="13" FontWeight="Normal"
+                   Text="共XXX条审计日志。" />
+            </uwp:TabView.Footer>
+        </uwp:TabView>
     </Grid>
 </Page>

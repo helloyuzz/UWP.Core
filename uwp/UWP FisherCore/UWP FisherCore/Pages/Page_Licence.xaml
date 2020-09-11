@@ -9,7 +9,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+
+    <Grid Margin="0,-40,0,0">
+        <!--<Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/65de008841d3350c3b218b2eb51f2510.jpg"></ImageBrush>
+        </Grid.Background>-->
         <Grid.Resources>
             <DataTemplate x:Key="RowDetailsTemplate">
                 <StackPanel>
@@ -41,12 +45,12 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="12">
+        <StackPanel Orientation="Horizontal" Margin="12,22,0,0">
             <SymbolIcon Symbol="List"/>
             <TextBlock Text="授权码" VerticalAlignment="Center" Margin="15,0" Style="{ThemeResource SubtitleTextBlockStyle}"></TextBlock>
         </StackPanel>
         <uwp:DataGrid
-            Grid.Row="1"
+            Grid.Row="1" Background="Transparent"
             x:Name="dataGrid"
             Margin="12"
             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
@@ -72,7 +76,7 @@
             RowGroupHeaderPropertyNameAlternative="Range"
             >
             <uwp:DataGrid.Columns>
-                <uwp:DataGridTextColumn Header="序号" Binding="{Binding Rank}" Tag="Rank" />
+                <uwp:DataGridTextColumn Header="序号" Binding="{Binding Rank}" Tag="Rank"/>
                 <uwp:DataGridComboBoxColumn Header="授权码" Binding="{Binding Mountain}" Tag="Mountain" />
                 <uwp:DataGridTextColumn Header="使用单位" Binding="{Binding Height_m}" Tag="Height_m" />
                 <uwp:DataGridTextColumn Header="注册日期" Binding="{Binding Range}" Tag="Range" />

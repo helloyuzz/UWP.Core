@@ -29,7 +29,7 @@
             </Image>
         </ParallaxView>-->
         <StackPanel Grid.Row="0" Width="Auto" Height="80" Padding="13">
-            <TextBlock Text="aa" Margin="13"/>
+            <TextBlock Text="Homepage" Margin="13"/>
         </StackPanel>
         <!--<Image Grid.Row="0" Width="Auto" Source="/Assets/6.jpg" Height="80" Margin="0,-40,0,0" Stretch="Fill"/>-->        
         <Grid Grid.Row="1">

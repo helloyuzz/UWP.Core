@@ -28,24 +28,35 @@ namespace UWP_FisherCore.Pages {
             root = UWPUtil.CreateRootFrame();
         }
 
+        string prev_SelectedText = "";
         private void nvSample_SelectionChanged(NavigationView sender,NavigationViewSelectionChangedEventArgs args) {
             NavigationViewItem item = args.SelectedItem as NavigationViewItem;
+
             //nvSample.Header = item.Content;
             nvSample.IsPaneOpen = true;
-            switch(item.Name) {
+            navi_Frame(item.Name);
+        }
+
+        private void navi_Frame(string itemName) {
+            //contentFrame.Tag = itemName;
+            switch(itemName) {
                 case "vItem_LicenceCode":
                     contentFrame.Navigate(UWPPages.Page_Licence);
                     break;
                 case "vItem_Account":
                     contentFrame.Navigate(UWPPages.Page_Account);
                     break;
-                case "vItem_Agent":
-                    contentFrame.Navigate(UWPPages.Page_Agent);
+                case "vItem_Project":
+                    contentFrame.Navigate(UWPPages.Page_Project);
                     break;
                 case "vItem_Log":
-                    contentFrame.Navigate(UWPPages.Page_Log);
+                    contentFrame.Navigate(UWPPages.Page_SecurityLog);
+                    break;
+                case "vItem_Homepage":
+                    contentFrame.Navigate(UWPPages.Page_Index);
                     break;
             }
+            prev_SelectedText = itemName;
         }
 
         private void sug_tip_TextChanged(AutoSuggestBox sender,AutoSuggestBoxTextChangedEventArgs args) {
@@ -82,16 +93,26 @@ namespace UWP_FisherCore.Pages {
                 switch(textBlock.Name) {
                     case "":
                     case "Icon":
-                        e.Handled = true;
+                        //e.Handled = true;
                         break;
                     default:
                         nvSample.IsPaneOpen = true;
                         break;
-                }
+                }                
             } else if(itemType.Equals(typeof(ContentPresenter))) {
                 return;
-            } else { 
-                //nvSample.IsPaneOpen = true;
+            } else {
+                //nvSample.IsPaneOpen = true;               
+            }
+            //check_CurrentFrame();
+        }
+
+        private void check_CurrentFrame() { // 只打开新页面，去重
+            if(prev_SelectedText.Equals("Homepage")) {
+                if(nvSample.SelectedItem != null) {
+                    NavigationViewItem navigationViewItem = nvSample.SelectedItem as NavigationViewItem;
+                    navi_Frame(navigationViewItem.Name);
+                }
             }
         }
 
@@ -121,7 +142,7 @@ namespace UWP_FisherCore.Pages {
         }
 
         private void homepage_PaneHyperlink_Click(object sender,RoutedEventArgs e) {
-            contentFrame.Navigate(UWPPages.Page_Index);
+            navi_Frame("Homepage");
         }
     }
 }

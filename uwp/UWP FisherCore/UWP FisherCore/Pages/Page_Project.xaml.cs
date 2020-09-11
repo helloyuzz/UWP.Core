@@ -19,8 +19,8 @@ namespace UWP_FisherCore.Pages {
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class Page_Log:Page {
-        public Page_Log() {
+    public sealed partial class Page_Project:Page {
+        public Page_Project() {
             this.InitializeComponent();
         }
     }

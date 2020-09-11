@@ -41,6 +41,9 @@ namespace UWP_FisherCore {
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e) {
+            //ApplicationView.PreferredLaunchViewSize = new Size(480,800);
+            //ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             //CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             coreTitleBar.ExtendViewIntoTitleBar = true;

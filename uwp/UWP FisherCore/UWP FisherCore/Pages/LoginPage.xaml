@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     >
     <Page.Background>
-        <ImageBrush ImageSource="/Assets/world_map_in_pink_and_green_list.jpg" Stretch="Fill" AlignmentX="Center" AlignmentY="Top"/>
+        <ImageBrush ImageSource="/Assets/78c12561958a477676cf484cbe1de26354a20190936dc99ca2378d2d1d1b6705.png" Stretch="UniformToFill" AlignmentX="Center" AlignmentY="Top"/>
     </Page.Background>
     <Grid Background="Transparent">
         <Grid.RowDefinitions>
@@ -19,19 +19,17 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="530"/>
+            <ColumnDefinition Width="580"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.ColumnSpan="4"/>
-        <Border  BorderThickness="1"
+        <Border  BorderThickness="1" CornerRadius="0"
                  Grid.Row="1" Grid.Column="1">
             <Border.Background>
-                <brushes:AcrylicBrush BackgroundSource="Backdrop"
-                                      TintColor="DarkCyan"
-                                      TintOpacity="0.2"/>
+                <SolidColorBrush Opacity="0.75" Color="Lavender" />
             </Border.Background>
 
-        <Pivot Title="系统登录" Opacity="80" BorderBrush="Aqua" Background="Transparent" FontSize="16" Margin="8">
+        <Pivot Title="系统登录" Opacity="0.8" BorderBrush="Aqua" Background="Transparent" FontSize="16" Margin="8">
             <PivotItem Header="帐号登录">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -52,14 +50,14 @@
                     <StackPanel Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">
                             <TextBlock Text="密码：" Margin="13"/>
                     </StackPanel>
-                    <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,13,0">
+                    <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,26,0">
                         <TextBox PlaceholderText="请输入用户名"/>
                     </StackPanel>
-                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,13,0">
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,26,0">
                         <PasswordBox PlaceholderText="请输入密码"/>
                     </StackPanel>
                     <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
-                        <Button x:Name="btn_Login" Width="100" Height="33" Click="btn_Login_Click" Foreground="White">确定</Button>
+                        <Button x:Name="btn_Login" Width="100" Height="33" Click="btn_Login_Click" Opacity="100">确定</Button>
                     </StackPanel>
                     <StackPanel Grid.Row="4" Grid.Column="1">
                         <ToggleSwitch OffContent="记住密码" OnContent="记住密码" IsOn="True" />

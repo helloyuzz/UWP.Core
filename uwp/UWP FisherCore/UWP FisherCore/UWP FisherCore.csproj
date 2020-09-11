@@ -136,14 +136,14 @@
     <Compile Include="Pages\Page_Account.xaml.cs">
       <DependentUpon>Page_Account.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Page_Agent.xaml.cs">
-      <DependentUpon>Page_Agent.xaml</DependentUpon>
+    <Compile Include="Pages\Page_Project.xaml.cs">
+      <DependentUpon>Page_Project.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Page_Licence.xaml.cs">
       <DependentUpon>Page_Licence.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Page_Log.xaml.cs">
-      <DependentUpon>Page_Log.xaml</DependentUpon>
+    <Compile Include="Pages\Page_SecurityLog.xaml.cs">
+      <DependentUpon>Page_SecurityLog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Xamls\AboutDialog.xaml.cs">
@@ -204,6 +204,12 @@
     <Content Include="Assets\32958516 [преобразованный].jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\3f9fc303c2b02e0c578d06744e1f1aa0 .jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\4b2b15dfc0d2dc992a42cac2f8a4f6f5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\4_1059604.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -219,16 +225,40 @@
     <Content Include="Assets\6.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\65de008841d3350c3b218b2eb51f2510.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\7.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\733f7f7a8d02efa71118f435e39664b8e99bf095ee9566fabedd8c6c5bdd55b5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\743b5c5d7bd27fd8cfd2757993b18131.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\78c12561958a477676cf484cbe1de26354a20190936dc99ca2378d2d1d1b6705.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\7f83da8d8d4a7e85c29adb63bc9247b9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\951 [преобразованный].jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\9d60a27fa85f4ced89b69f8fbe8e1590efab1a6af8312d9dcafdd6dc88ab2f8a.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\bg1.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\BUILD2017_Seattle_Skyline.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\dcf28c8872315c88b00c5ac2dcff9c20dd49172a03f5fea9d6c17ce9c192ab4c.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\eb780a7ae9ee0b4467a840b33c4ed0bf.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Fairy landscapes %282%29 [преобразованный].jpg">
@@ -320,7 +350,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Page_Agent.xaml">
+    <Page Include="Pages\Page_Project.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -332,7 +362,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Page_Log.xaml">
+    <Page Include="Pages\Page_SecurityLog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

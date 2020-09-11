@@ -14,6 +14,9 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>-->
+        <!--<Grid.Background>
+            <ImageBrush Stretch="UniformToFill" ImageSource="/Assets/world_map_in_pink_and_green_list.jpg"></ImageBrush>
+        </Grid.Background>-->
         <Border x:Name="AppTitleBar"
                 Grid.Column="1"
                 IsHitTestVisible="True"
@@ -36,18 +39,18 @@
                         SelectionChanged="nvSample_SelectionChanged"
                         Tapped="nvSample_Tapped"                        
                         AlwaysShowHeader="True"
-                        PaneTitle="授权管理系统"
+                        PaneTitle="授权码管理系统"
                         PaneDisplayMode="Left"
                         ExpandedModeThresholdWidth="430"
                         SelectionFollowsFocus="Enabled" 
                         IsTabStop="False"
                         Background="Transparent"
                         IsPaneToggleButtonVisible="True"
-                        >
+                        >            
             <NavigationView.MenuItems>
-                <NavigationViewItem Content="授权码管理" Tag="vItem_LicenceCode" x:Name="vItem_LicenceCode">
+                <NavigationViewItem Content="主页" Tag="vItem_Homepage" x:Name="vItem_Homepage">
                     <NavigationViewItem.Icon>
-                        <SymbolIcon Symbol="List" />
+                        <SymbolIcon Symbol="Home" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem Content="登录帐号" x:Name="vItem_Account" Tag="vItem_Account">
@@ -55,26 +58,31 @@
                         <SymbolIcon Symbol="Contact"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="代理商" Tag="vItem_Agent" x:Name="vItem_Agent">
-                    <muxc:NavigationViewItem.Icon>
-                        <SymbolIcon Symbol="DisableUpdates" />
-                    </muxc:NavigationViewItem.Icon>
-                </NavigationViewItem>
-                <NavigationViewItem Content="医院列表" x:Name="vItem_Tile" Tag="vItem_Account">
+                <NavigationViewItem Content="项目列表" x:Name="vItem_Project" Tag="vItem_Project">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="Account"/>
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem Content="日志审计" Tag="vItem_Log" x:Name="vItem_Log">
+                <NavigationViewItem Content="授权码" Tag="vItem_LicenceCode" x:Name="vItem_LicenceCode">
+                    <NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="List" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <!--<NavigationViewItem Content="Agent List" Tag="vItem_Agent" x:Name="vItem_Agent">
+                    <muxc:NavigationViewItem.Icon>
+                        <SymbolIcon Symbol="DisableUpdates" />
+                    </muxc:NavigationViewItem.Icon>
+                </NavigationViewItem>-->
+                <NavigationViewItem Content="日志" Tag="vItem_Log" x:Name="vItem_Log">
                     <NavigationViewItem.Icon>
                         <SymbolIcon Symbol="LeaveChat" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
 
-            <NavigationView.PaneCustomContent>
+            <!--<NavigationView.PaneCustomContent>
                 <HyperlinkButton x:Name="homepage_PaneHyperlink" Content="Homepage" Margin="12,0" Visibility="Visible" Click="homepage_PaneHyperlink_Click"/>
-            </NavigationView.PaneCustomContent>
+            </NavigationView.PaneCustomContent>-->
 
             <NavigationView.PaneFooter>
                 <NavigationViewItem Icon="Repair" Tapped="StackPanel_Tapped">
@@ -83,18 +91,18 @@
                     </StackPanel>
                     <FlyoutBase.AttachedFlyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem Text="关于..." Icon="Help" Name="vItem_About" Tag="vItem_About" Click="vItem_About_Click">
+                            <MenuFlyoutItem Text="About..." Icon="Help" Name="vItem_About" Tag="vItem_About" Click="vItem_About_Click">
                                 <MenuFlyoutItem.KeyboardAccelerators>
                                     <KeyboardAccelerator Key="F1"/>
                                 </MenuFlyoutItem.KeyboardAccelerators>
                             </MenuFlyoutItem>
                             <MenuFlyoutSeparator/>
-                            <MenuFlyoutItem Text="注销..." Icon="Redo" Name="btn_Exit" Tag="logout" Click="btn_Exit_Click" Tapped="btn_Exit_Tapped">
+                            <MenuFlyoutItem Text="Logout..." Icon="Redo" Name="btn_Exit" Tag="logout" Click="btn_Exit_Click" Tapped="btn_Exit_Tapped">
                                 <MenuFlyoutItem.KeyboardAccelerators>
                                     <KeyboardAccelerator Key="S" Modifiers="Control"/>
                                 </MenuFlyoutItem.KeyboardAccelerators>
                             </MenuFlyoutItem>
-                            <MenuFlyoutItem Text="设置" Icon="Setting" Tag="distance">
+                            <MenuFlyoutItem Text="Configuration" Icon="Setting" Tag="distance">
                                 <MenuFlyoutItem.KeyboardAccelerators>
                                     <KeyboardAccelerator Key="X" Modifiers="Control"/>
                                 </MenuFlyoutItem.KeyboardAccelerators>
@@ -107,7 +115,7 @@
             <Frame x:Name="contentFrame" Background="Transparent"/>
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox x:Name="sug_tip" 
-                                PlaceholderText="代理商或授权码"            
+                                PlaceholderText="项目名称或授权码"            
                                 TextChanged="sug_tip_TextChanged"        
                                 QueryIcon="Find"        
                                 QuerySubmitted="sug_tip_QuerySubmitted"        
